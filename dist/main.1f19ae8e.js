@@ -121,10 +121,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 const $ = element => document.querySelector(element);
 
 fetch("https://s3.amazonaws.com/dolartoday/data.json").then(res => res.json()).then(res => {
-  console.log(res.USD.promedio_real);
-  console.log(res.EUR.sicad1);
-  $("#dolar").innerText = res.USD.promedio_real;
-  $("#euro").innerText = res.EUR.sicad1;
+  $("#dolarBCV").innerText = res.USD.promedio_real;
+  $("#dolarToday").innerText = res.USD.dolartoday;
 });
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -154,7 +152,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1787" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1244" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
